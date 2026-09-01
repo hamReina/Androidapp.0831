@@ -33,6 +33,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         prefDataStore = PrefDataStore.getInstance(this);
+        //prefDataStore.getString("name")
+                //.ifPresent(name -> binding.textView.setText(name));
+
+        prefDataStore.getString("name")
+                .ifPresent(text ->{
+                    if("a".equals(text)){
+                        binding.textView.setText("Aの画像");
+                        binding.imageView.setImageResource(R.drawable.ic_add_home);
+                    }else if("b".equals(text)){
+                        binding.textView.setText("Bの画像");
+                        binding.imageView.setImageResource(R.drawable.ic_add_location);
+                    }else{
+                        binding.textView.setText("知らない画像");
+                    }
+                });
 
         //TextView textView = findViewById(R.id.text_view);
         //textView.setText(R.string.app_name);
@@ -40,12 +55,22 @@ public class MainActivity extends AppCompatActivity {
 
         binding.button.setOnClickListener(view -> {
             String text = binding.editTextText.getText().toString();
+
+
             binding.textView.setText(text);
         });
 
         binding.savebutton.setOnClickListener(view -> {
             var text = binding.editTextText.getText().toString();
             prefDataStore.setString("name", text);
+
+            if("a".equals(text)){
+                binding.imageView.setImageResource(R.drawable.ic_android);
+            }else if("b".equals(text)){
+                binding.imageView.setImageResource(R.drawable.ic_add_location);
+            }else{
+                text="unknouwn";
+            }
         });
 
         binding.editTextText.addTextChangedListener(new TextWatcher() {
