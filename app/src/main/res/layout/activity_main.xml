@@ -8,12 +8,22 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="さようなら"
+        android:text="@string/text"
+        android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="288dp"
+        android:layout_height="201dp"
+        app:srcCompat="@drawable/ic_android"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="72dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
