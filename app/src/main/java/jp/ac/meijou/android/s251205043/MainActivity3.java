@@ -32,7 +32,20 @@ public class MainActivity3 extends AppCompatActivity {
         Intent intent=getIntent();
         String sentText = intent.getStringExtra("editTet");
         binding.textViewInput.setText(sentText);
-        
+
+        //OKbuttonの処理
+        binding.buttonOK.setOnClickListener(view->{
+            var ok_intent  = new Intent();
+            ok_intent.putExtra("ret","OK");
+            setResult(RESULT_OK,ok_intent);
+            finish();
+        });
+
+        binding.buttonCancel.setOnClickListener(view->{
+            setResult(RESULT_CANCELED);
+            finish();
+        });
+
         //電卓用コード
         binding.button0.setOnClickListener(view->{
             
